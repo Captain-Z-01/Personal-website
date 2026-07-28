@@ -1,0 +1,11 @@
+IoT Project
+
+Semuanya berawal dari mainan dinosaurus. Nggak kepikiran bakal jadi awal buat ngulik dunia elektronik dan IoT, tapi ya... dari situ malah jadi keterusan.
+
+Awalnya cuma penasaran gimana benda sederhana bisa bergerak atau bereaksi. Lama-lama mulai kenal sensor, mikrokontroler, modul, sampai akhirnya nyobain bikin project sendiri. Satu jalan, dua gagal. Udah biasa.
+
+Yang seru justru pas semuanya akhirnya nyambung. LED nyala di waktu yang pas, sensor mulai ngerespons, atau perangkat bisa jalan sesuai yang dibayangin. Rasanya kecil sih, tapi tetap bikin senyum sendiri.
+
+Masih banyak yang pengen dicoba. Kadang idenya muncul dari hal yang nggak disangka, sama kayak dulu... semuanya juga berawal dari sebuah mainan dinosaurus.
+
+Aneh? Mungkin. Tapi kalau bukan karena rasa penasaran waktu itu, mungkin gw nggak bakal sampai di titik ini.
