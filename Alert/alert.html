@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akses Ditolak</title>
+<meta name="description" content="Anda tidak memiliki izin untuk mengakses halaman ini.">
+
+<style>
+:root{
+    --bg:#0b1220;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --primary:#3b82f6;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:
+        radial-gradient(circle at top,#1e3a8a22,transparent 45%),
+        var(--bg);
+    color:var(--text);
+    padding:24px;
+}
+
+main{
+    flex:1;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card{
+    width:100%;
+    max-width:520px;
+    text-align:center;
+}
+
+.icon{
+    width:90px;
+    height:90px;
+    margin:0 auto 24px;
+}
+
+.icon svg{
+    width:100%;
+    height:100%;
+}
+
+h1{
+    font-size:2rem;
+    margin-bottom:12px;
+}
+
+p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:32px;
+}
+
+button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:var(--primary);
+    color:#fff;
+    padding:14px 30px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:600;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+footer{
+    width:100%;
+    text-align:center;
+    color:var(--muted);
+    font-size:.9rem;
+    padding:20px 0 8px;
+}
+
+@media (max-width:480px){
+
+    body{
+        padding:20px;
+    }
+
+    .icon{
+        width:80px;
+        height:80px;
+    }
+
+    h1{
+        font-size:1.7rem;
+    }
+
+    p{
+        font-size:.95rem;
+    }
+
+    button{
+        width:100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<main>
+
+<div class="card">
+
+    <div class="icon">
+        <svg viewBox="0 0 94.012 94.012" aria-hidden="true">
+            <g>
+
+                <!-- Sirah -->
+                <path fill="var(--text)" d="M42.145,47.759v0.004c0.009,0,0.02-0.002,0.029-0.002c0.005,0,0.013,0.002,0.02,0.002c0.001,0,0.004,0,0.007,0c0.003,0,0.006,0,0.007,0c0.007,0,0.015-0.002,0.02-0.002c0.01,0,0.02,0.002,0.029,0.002v-0.004c12.005,0.183,19.302-10.324,19.49-27.646c0.12-12.017-7.332-18.888-19.47-19.212V0.897c-0.019,0-0.032,0.002-0.051,0.002V0.897c-0.011,0-0.019,0-0.026,0.002c-0.008-0.002-0.018-0.002-0.026-0.002v0.002c-0.019,0-0.033-0.002-0.049-0.002v0.004C29.987,1.225,22.533,8.096,22.654,20.113C22.843,37.436,30.14,47.942,42.145,47.759z"/>
+
+                <!-- Awak -->
+                <path fill="var(--text)" d="M68.5,83.388H0l14.662-24.507c0.906-1.522,2.258-2.603,3.781-3.229l10.298-4.74l13.433,13.324l13.411-13.324l10.297,4.74c1.523,0.627,2.875,1.707,3.781,3.229L84.4,83.388H68.5z"/>
+
+                <!-- Badge -->
+                <circle cx="74" cy="70" r="16" fill="#ef4444"/>
+
+                <!-- X -->
+                <path d="M68 64L80 76M80 64L68 76"
+                      stroke="#ffffff"
+                      stroke-width="3.5"
+                      stroke-linecap="round"/>
+
+            </g>
+        </svg>
+    </div>
+
+    <h1>Akses Ditolak</h1>
+
+    <p>
+        Maaf, Anda tidak memiliki izin untuk mengakses halaman ini.
+        Silakan kembali ke halaman sebelumnya atau hubungi Captain Z
+        apabila Anda merasa ini adalah kesalahan.
+    </p>
+
+    <button onclick="history.back()">
+        ← Kembali
+    </button>
+
+</div>
+
+</main>
+
+<footer>
+    &copy; <span id="year"></span> Captain_Z MD &bull; All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
