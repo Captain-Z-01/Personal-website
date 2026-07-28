@@ -1,0 +1,13 @@
+UI Design
+
+Entah kenapa, ngatur posisi tombol sama milih warna kadang bisa makan waktu lebih lama daripada bikin fiturnya. Padahal yang diubah cuma beberapa pixel.
+
+Buat gue, UI itu bukan sekadar kelihatan keren. Harus nyaman dipakai. Nggak bikin mata capek, nggak bikin orang mikir, "ini tombolnya di mana sih?"
+
+Kadang desain pertama langsung cocok. Kadang... udah bikin lima versi, ujung-ujungnya balik lagi ke yang pertama. Agak ngeselin, tapi ya udah.
+
+Gue lebih suka tampilan yang bersih. Animasi secukupnya, warna yang nggak berisik, dan semuanya terasa pas tanpa harus terlalu mencolok.
+
+Masih sering nyari inspirasi dari mana-mana. Bukan buat nyontek, tapi buat lihat gimana orang lain nyelesain masalah yang sama dengan cara yang beda.
+
+Mungkin desain yang dibuat sekarang belum sempurna. Tapi kalau besok masih ada yang pengen diperbaiki, berarti masih ada alasan buat terus ngulik.
