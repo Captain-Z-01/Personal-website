@@ -1,0 +1,13 @@
+WhatsApp Bot
+
+Awalnya cuma iseng. Penasaran aja, "emang bisa ya WhatsApp dibikin lebih dari sekadar aplikasi chat?"
+
+Ternyata bisa.
+
+Dari bot yang cuma balas "Halo", lama-lama mulai nambah fitur. Kadang ada yang kepake, kadang cuma numpuk di folder project. Tapi ya begitulah prosesnya.
+
+Yang paling sering bikin lama justru bukan nulis fiturnya. Tapi nyari bug yang entah datang dari mana. Udah yakin bener, pas dicoba... malah error. Ditinggal bentar, balik lagi, eh tiba-tiba jalan. Sampai sekarang juga masih bingung.
+
+Buat gue, bot itu bukan soal banyaknya command. Yang penting stabil, ringan, dan enak dipakai. Percuma fiturnya segudang kalau tiap update malah bikin masalah baru.
+
+Masih banyak yang pengen dicoba. Mungkin bakal ada fitur baru, mungkin juga cuma ngerapihin yang udah ada. Nggak ada target muluk-muluk sih, yang penting project ini terus berkembang. Pelan-pelan juga nggak masalah.
