@@ -1,0 +1,13 @@
+Server & Hosting
+
+Kalau dipikir-pikir, server itu lucu. Selama semuanya normal, hampir nggak ada yang peduli. Begitu down lima menit... baru deh semua orang nyari penyebabnya.
+
+Buat gue, server bukan cuma tempat naruh file. Di situlah semua project akhirnya "hidup". Mulai dari website, bot, sampai layanan kecil yang diam-diam jalan di belakang layar.
+
+Nggak selalu mulus juga. Kadang ada error yang muncul tanpa aba-aba, penggunaan RAM tiba-tiba naik, atau service yang mendadak berhenti. Ya... tinggal cari log, baca pelan-pelan, terus semoga ketemu penyebabnya.
+
+Yang penting bukan server paling mahal atau spesifikasi paling tinggi. Selama stabil, aman, dan bisa diandalkan setiap hari, itu udah lebih dari cukup.
+
+Masih banyak hal yang pengen dipelajari. Optimasi, keamanan, otomatisasi, dan banyak hal kecil yang mungkin nggak kelihatan dari luar, tapi cukup berpengaruh di balik layar.
+
+Pada akhirnya, server yang baik itu yang jarang disadari keberadaannya. Karena kalau semua berjalan lancar... berarti dia lagi melakukan tugasnya dengan baik.
