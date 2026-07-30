@@ -557,8 +557,12 @@ function loadBlog(data) {
   `;
 }
 </script>
-
-<script src="https://captainzdaily.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=1&callback=loadBlog"></script>
+  <script>
+if (window.top !== window.self) {
+    window.top.location = window.self.location;
+}
+  </script>
+  <script src="https://captainzdaily.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=1&callback=loadBlog"></script>
   <script src="script.js"></script>
 </body>
 </html>
