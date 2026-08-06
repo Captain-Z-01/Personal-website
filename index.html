@@ -4,143 +4,171 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Captain Z | Personal website</title>
+<title>Captain Z • Maintenance</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+:root{
+    --bg:#0b1120;
+    --card:#111827;
+    --border:#1f2937;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --primary:#2563eb;
+    --primary-hover:#1d4ed8;
+    --success:#16a34a;
+    --success-hover:#15803d;
 }
 
 body{
-background:#0f172a;
-color:#fff;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:30px;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        radial-gradient(circle at top,#172554 0%,transparent 45%),
+        var(--bg);
+    color:var(--text);
+    padding:24px;
 }
 
-.container{
-width:100%;
-max-width:700px;
-text-align:center;
-padding:50px;
-background:#111827;
-border:1px solid rgba(255,255,255,.06);
-border-radius:18px;
+.card{
+    width:100%;
+    max-width:760px;
+    background:rgba(17,24,39,.96);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:48px;
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
 }
 
-.logo{
-font-size:32px;
-font-weight:700;
-letter-spacing:2px;
-margin-bottom:30px;
+.brand{
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:.28em;
+    color:#60a5fa;
+    text-transform:uppercase;
+    margin-bottom:18px;
 }
 
-.badge{
-display:inline-block;
-padding:8px 16px;
-background:#1e293b;
-border:1px solid #334155;
-color:#cbd5e1;
-font-size:13px;
-border-radius:999px;
-margin-bottom:25px;
-text-transform:uppercase;
-letter-spacing:1px;
+.status{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid #334155;
+    border-radius:999px;
+    color:#cbd5e1;
+    background:#0f172a;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
 }
 
 h1{
-font-size:38px;
-margin-bottom:20px;
+    margin-top:24px;
+    font-size:40px;
+    line-height:1.2;
+    font-weight:800;
 }
 
 p{
-color:#94a3b8;
-line-height:1.8;
-margin-bottom:40px;
+    margin-top:20px;
+    color:var(--muted);
+    line-height:1.9;
+    font-size:16px;
 }
 
-.contact{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+.actions{
+    margin-top:40px;
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
 }
 
-.contact a{
-text-decoration:none;
-padding:14px 26px;
-border-radius:10px;
-font-weight:600;
-transition:.25s;
+.btn{
+    text-decoration:none;
+    color:#fff;
+    padding:14px 24px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.2s;
 }
 
-.wa{
-background:#16a34a;
-color:#fff;
+.btn-wa{
+    background:var(--success);
 }
 
-.mail{
-background:#2563eb;
-color:#fff;
+.btn-wa:hover{
+    background:var(--success-hover);
 }
 
-.contact a:hover{
-opacity:.9;
+.btn-mail{
+    background:var(--primary);
+}
+
+.btn-mail:hover{
+    background:var(--primary-hover);
 }
 
 footer{
-margin-top:45px;
-font-size:13px;
-color:#64748b;
+    margin-top:48px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+    color:#64748b;
+    font-size:14px;
 }
 </style>
 
 </head>
 <body>
 
-<div class="container">
+<div class="card">
 
-<div class="logo">
-Captain Z
+<div class="brand">
+CAPTAIN Z
 </div>
 
-<div class="badge">
+<div class="status">
 Maintenance
 </div>
 
-<h1>Website Sedang Dalam Pemeliharaan</h1>
+<h1>Website sedang tidak tersedia untuk sementara.</h1>
 
 <p>
-Kami sedang melakukan pembaruan sistem untuk meningkatkan kualitas layanan,
-keamanan, dan pengalaman pengguna.
-<br><br>
-Mohon maaf atas ketidaknyamanannya. Silakan kembali beberapa saat lagi atau
-hubungi kami apabila memiliki pertanyaan.
+Halo, terima kasih telah berkunjung ke website pribadi <strong>Captain Z</strong>.
+Saat ini saya sedang melakukan pembaruan dan penyempurnaan pada website agar memberikan pengalaman yang lebih baik, lebih cepat, dan lebih nyaman digunakan.
 </p>
 
-<div class="contact">
+<p>
+Mohon maaf atas ketidaknyamanannya. Apabila ada pertanyaan atau ingin menghubungi saya, silakan melalui salah satu kontak berikut.
+</p>
 
-<a href="https://wa.me/6285921299248" class="wa">
+<div class="actions">
+
+<a class="btn btn-wa"
+href="https://wa.me/6285921299248?text=Assalamualaikum">
 WhatsApp
 </a>
 
-<a href="mailto:yahyaa3536@gmail.com" class="mail">
+<a class="btn btn-mail"
+href="mailto:yahyaa3536@gmail.com">
 Email
 </a>
 
 </div>
 
 <footer>
-© 2026 Captain Z. All rights reserved.
+© 2026 Captain Z. Personal Website.
 </footer>
 
 </div>
