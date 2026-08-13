@@ -1,177 +1,334 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="utama" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <meta name="description" content="Website pribadi Captain Z — modern, responsif, dengan tema gelap/terang, musik latar, animasi, dan tombol Chat AI." />
+  <meta name="keywords" content="Captain Z, personal website, portfolio, Chat AI, modern website" />
+  <meta name="author" content="Yahya Zakaria / Captain Z" />
+  <meta property="og:title" content="Capt. Z | Personal Website" />
+  <meta property="og:description" content="Website pribadi modern milik Yahya Zakaria." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Captain Z | Personal Website</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
 
-<title>Captain Z • Maintenance</title>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    :root {
+      --bg: #f7f8fa;
+      --card: rgba(255, 255, 255, 0.78);
+      --text: #17191d;
+      --muted: #747982;
+      --border: rgba(0, 0, 0, 0.08);
+      --accent: #111827;
+      --button-text: #000000;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
-}
+    html.dark {
+      --bg: #0c0e12;
+      --card: rgba(22, 25, 31, 0.78);
+      --text: #f3f4f6;
+      --muted: #969ca7;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #f3f4f6;
+      --button-text: #ffffff;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    }
 
-:root{
-    --bg:#0b1120;
-    --card:#111827;
-    --border:#1f2937;
-    --text:#f8fafc;
-    --muted:#94a3b8;
-    --primary:#2563eb;
-    --primary-hover:#1d4ed8;
-    --success:#16a34a;
-    --success-hover:#15803d;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:
-        radial-gradient(circle at top,#172554 0%,transparent 45%),
-        var(--bg);
-    color:var(--text);
-    padding:24px;
-}
+      font-family: "Nunito", sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--bg);
 
-.card{
-    width:100%;
-    max-width:760px;
-    background:rgba(17,24,39,.96);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:48px;
-    box-shadow:0 25px 60px rgba(0,0,0,.45);
-}
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
 
-.brand{
-    font-size:14px;
-    font-weight:700;
-    letter-spacing:.28em;
-    color:#60a5fa;
-    text-transform:uppercase;
-    margin-bottom:18px;
-}
+      overflow: hidden;
+    }
 
-.status{
-    display:inline-block;
-    padding:8px 14px;
-    border:1px solid #334155;
-    border-radius:999px;
-    color:#cbd5e1;
-    background:#0f172a;
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-}
+    /* Background */
 
-h1{
-    margin-top:24px;
-    font-size:40px;
-    line-height:1.2;
-    font-weight:800;
-}
+    .background {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
 
-p{
-    margin-top:20px;
-    color:var(--muted);
-    line-height:1.9;
-    font-size:16px;
-}
+    .background::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      top: -180px;
+      right: -130px;
+      border-radius: 50%;
+      background: rgba(120, 130, 150, 0.08);
+      filter: blur(10px);
+    }
 
-.actions{
-    margin-top:40px;
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-}
+    .background::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      bottom: -180px;
+      left: -140px;
+      border-radius: 50%;
+      background: rgba(120, 130, 150, 0.06);
+      filter: blur(10px);
+    }
 
-.btn{
-    text-decoration:none;
-    color:#fff;
-    padding:14px 24px;
-    border-radius:10px;
-    font-weight:600;
-    transition:.2s;
-}
+    .maintenance-card {
+      width: min(100%, 440px);
+      padding: 38px 30px 28px;
+      text-align: center;
+      animation: appear 0.7s ease both;
+    }
 
-.btn-wa{
-    background:var(--success);
-}
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.btn-wa:hover{
-    background:var(--success-hover);
-}
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
 
-.btn-mail{
-    background:var(--primary);
-}
+    h1 {
+      margin-bottom: 12px;
+      font-size: 25px;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
 
-.btn-mail:hover{
-    background:var(--primary-hover);
-}
+    .description {
+      max-width: 340px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
 
-footer{
-    margin-top:48px;
-    padding-top:24px;
-    border-top:1px solid var(--border);
-    color:#64748b;
-    font-size:14px;
-}
-</style>
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.45;
+        transform: scale(0.9);
+      }
 
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .contact {
+      margin-top: 27px;
+    }
+
+    .contact-button {
+      width: 100%;
+      min-height: 45px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 13px;
+      
+      color: var(--button-text);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .contact-button:active {
+      transform: scale(0.98);
+    }
+
+    .wa-icon {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    footer {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 10.5px;
+      line-height: 1.6;
+    }
+
+    footer strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    
+   .datetime {
+      margin-top: 3px;
+      font-size: 10px;
+      color: var(--muted);
+      opacity: 0.85;
+    }
+    .copyright {
+      margin-top: 4px;
+    }
+
+    @media (max-width: 420px) {
+      body {
+        padding: 17px;
+      }
+
+      .maintenance-card {
+        padding: 32px 22px 24px;
+        border-radius: 21px;
+      }
+
+      h1 {
+        font-size: 23px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="background"></div>
+  <main class="maintenance-card">
+    <h1>Website sedang diperbaiki</h1>
+    <p class="description">
+      Website pribadi Captain Z sedang dalam proses perbaikan
+      dan pengembangan. Beberapa bagian mungkin belum dapat
+      diakses untuk sementara waktu.
+    </p>
+    
+    <div class="contact">
+      <a href="Alert/alert.html" class="contact-button">
+        Hubungi Captain Z
+      </a>
+    </div>
 
-<div class="card">
+    <footer>
+      <div>
+        Website pribadi <strong>Captain Z</strong>
+      </div>
+      <div class="copyright">
+        © <span id="year"></span> Captain_Z MD. All rights reserved.
+      </div>
+      <div class="datetime" id="datetime"></div>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const THEME_KEY = "Captain_Z-MD.theme";
+      const root = document.documentElement;
+      
+      function applyTheme() {
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        root.classList.remove("dark");
+        if (savedTheme === "dark") {
+          root.classList.add("dark");
+        }
+        else if (savedTheme === "light") {
+        }
+        else {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          if (prefersDark) {
+            root.classList.add("dark");
+          }
+        }
+      }
 
-<div class="brand">
-CAPTAIN Z
-</div>
+      applyTheme();
+      const mediaQuery = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      );
 
-<div class="status">
-Maintenance
-</div>
+      mediaQuery.addEventListener("change", () => {
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        if (!savedTheme || savedTheme === "auto") {
+          applyTheme();
+        }
+      });
 
-<h1>Website sedang tidak tersedia untuk sementara.</h1>
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    })();
+    
+    function updateDateTime() {
+      const now = new Date();
 
-<p>
-Halo, terima kasih telah berkunjung ke website pribadi <strong>Captain Z</strong>.
-Saat ini saya sedang melakukan pembaruan dan penyempurnaan pada website agar memberikan pengalaman yang lebih baik, lebih cepat, dan lebih nyaman digunakan.
-</p>
+      const date = now.toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+      });
 
-<p>
-Mohon maaf atas ketidaknyamanannya. Apabila ada pertanyaan atau ingin menghubungi saya, silakan melalui salah satu kontak berikut.
-</p>
+      const time = now.toLocaleTimeString("id-ID", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
 
-<div class="actions">
+      document.getElementById("datetime").textContent =
+        `${date} • ${time}`;
+    }
 
-<a class="btn btn-wa"
-href="https://wa.me/6285921299248?text=Assalamualaikum">
-WhatsApp
-</a>
-
-<a class="btn btn-mail"
-href="mailto:yahyaa3536@gmail.com">
-Email
-</a>
-
-</div>
-
-<footer>
-© 2026 Captain Z. Personal Website.
-</footer>
-
-</div>
-
-</body>
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script></body>
 </html>
