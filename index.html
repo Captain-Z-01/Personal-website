@@ -26,11 +26,11 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet"    
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,305 +42,548 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
   }
   </script>
 </head>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+<body class="loading">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+  <div id="loader" class="loader-screen" role="status" aria-live="polite" aria-busy="true">
+    <div class="loader-card glass">
+      <div class="loader-brand">
+        <div class="loader-mark">
+  <img src="https://avatars.githubusercontent.com/u/308199074?v=4" alt="Kicaw kicaw, kicaw maniac. Wkwkwk">
+</div>
+        <div>
+          <div class="loader-title">Yahya Zakaria</div>
+          <div class="loader-subtitle">Captain Z | Memuat website pribadi...</div>
+        </div>
+      </div>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    :root {
-      --bg: #f7f8fa;
-      --card: rgba(255, 255, 255, 0.78);
-      --text: #17191d;
-      --muted: #747982;
-      --border: rgba(0, 0, 0, 0.08);
-      --accent: #111827;
-      --button-text: #000000;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    }
+      <div class="loader-ring" aria-hidden="true"></div>
+      <div class="loading-meta">
+        <div class="loading-progress-row">
+          <span id="loadingProgress">0%</span>
+          <span class="loading-hint">Jangan ditutup dulu</span>
+        </div>
+        <div class="loading-bar" aria-hidden="true">
+          <div id="loadingBar" class="loading-bar-fill"></div>
+        </div>
+        <p id="loadingStatus" class="loading-status">Menyiapkan aset...</p>
+        <p id="loadingFile" class="loading-file">Menunggu file...</p>
+      </div>
+      <button id="retryBtn" class="retry-btn" type="button" hidden>
+        Coba lagi
+      </button>
+    </div>
+  </div>
 
-    html.dark {
-      --bg: #0c0e12;
-      --card: rgba(22, 25, 31, 0.78);
-      --text: #f3f4f6;
-      --muted: #969ca7;
-      --border: rgba(255, 255, 255, 0.08);
-      --accent: #f3f4f6;
-      --button-text: #ffffff;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-    }
+  <div id="app" hidden> 
+    <header class="topbar">
+      <nav class="nav glass">
+        <a class="brand" href="#" aria-label="Beranda ">
+                  <div class="loader-mark">
+  <img src="https://avatars.githubusercontent.com/u/308199074?v=4" alt="Kicaw kicaw, kicaw maniac. Wkwkwk">
+</div>
+          <span class="brand-text">Captain Z</span>
+        </a>
+        <div class="nav-links" style="background:#2bd5ff83;"id="navLinks" >
+          <a href="#home">Beranda</a>
+          <a href="#about">Tentang</a>
+          <a href="#project">Proyek</a>
+          <a href="#community">community</a>
+          <a href="#other">Other</a> 
+          <a href="#contact">Kontak</a>
+          <a href="#ceo">CEO</a>
+        </div>
+      <div class="nav-actions">
+          <button class="icon-btn" id="themeBtn" aria-label="Ganti tema">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="icon-btn" id="musicBtn" aria-label="Buka widget musik">
+            <i class="fa-solid fa-music"></i>
+          </button>
+          <button class="menu-btn" id="menuBtn" aria-label="Buka menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        </div>
+      </nav>
+      <div id="musicPlayer" class="music-player glass" aria-label="Widget musik">
+        <button id="volumeBtn" class="icon-btn" aria-label="Mute atau unmute musik">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+        <input
+          type="range"
+          id="musicProgress"
+          min="0"
+          max="100"
+          value="0"
+          aria-label="Progress lagu"
+        >
+        <div id="miniEq" class="mini-eq" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>   
+    </header>
+    <main>        
+      <section id="home" class="hero section">
+        <div class="hero-copy" data-reveal>
+     
+          <p class="eyebrow">Website pribadi</p>
+          <h1 id="heroTitle" style="font-size:40px">
+  Hi, I'm <span>Yahya</span>
+</h1>
+          <p class="lead" id="typing"></p>
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+          <div class="hero-actions">
+            <a class="btn primary" href="#about">Lihat Tentang</a>
+            <a class="btn ghost" href="#contact">Hubungi Saya</a>
+          </div>
 
-      font-family: "Nunito", sans-serif;
-      font-size: 14px;
-      color: var(--text);
-      background: var(--bg);
+          <div class="stats">
+            <div class="stat glass">
+              <strong>Modern</strong>
+              <span>Glassmorphism</span>
+            </div>
+            <div class="stat glass">
+              <strong>Responsive</strong>
+              <span>HP sampai Desktop</span>
+            </div>
+            <div class="stat glass">
+              <strong>Music</strong>
+              <span>Putar dengan musik</span>
+            </div>
+          </div>
+        </div>
 
-      transition:
-        background 0.3s ease,
-        color 0.3s ease;
+        <div class="hero-card glass" data-reveal>
+        <div class="profile-ring">
+        <img src="image/profile/profile.jpg" alt="Foto" class="profile-avatar">
+        </div>
+      <h2 class="font-abc" style="font-size:30px;">Yahya Zakaria</h2>
+    <p>Seorang pembuat website pribadi, proyek kreatif, dan eksplorasi teknologi.</p>
 
-      overflow: hidden;
-    }
+     <div class="mini-tags">
+        <span>Developer</span> 
+        <span>Editor UI Design</span>
+        <span>Planner</span>
+        <span>Content Creator</span>
+        <span>Student</span>
+     </div>
+   </div>
+      </section>
 
-    /* Background */
+      <section id="about" class="section">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Tentang</p>
+          <h2>Kenalan singkat</h2>
+          <p><p>Halo, saya Yahya Zakaria atau lebih dikenal sebagai Capt. Z. Saya masih duduk di bangku SMA dan memiliki ketertarikan pada pengembangan web serta desain antarmuka. Saya menikmati proses membuat sesuatu yang sederhana, cepat, dan enak dipandang. Di luar itu, saya juga menghabiskan waktu dengan menerbangkan pesawat di <a href="#flight">flight simulator.</a></p></p>
+          <a href="/About">Tampilkan selebihnya</a>
+          <br><br><br>
+          <div id="daily">Memuat catatan...</div>
+        </div>
 
-    .background {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: -1;
-    }
+        <div class="grid-3">
+          <article class="card glass" data-reveal>
+            <i class="fa-solid fa-code"></i>
+            <h3 style="font-size:20px;">Ngoding</h3>
+            <p>HTML, CSS, dan JavaScript untuk membangun website modern.</p>
+          </article>
 
-    .background::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      top: -180px;
-      right: -130px;
-      border-radius: 50%;
-      background: rgba(120, 130, 150, 0.08);
-      filter: blur(10px);
-    }
+          <article class="card glass" data-reveal>
+            <i class="fa-solid fa-rocket"></i>
+            <h3 style="font-size:20px;">Proyek</h3>
+            <p>Eksperimen web, server, dan ide kreatif yang terus dikembangkan.</p>
+          </article>
 
-    .background::after {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      bottom: -180px;
-      left: -140px;
-      border-radius: 50%;
-      background: rgba(120, 130, 150, 0.06);
-      filter: blur(10px);
-    }
+          <article class="card glass" data-reveal>
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <h3 style="font-size:20px;">Desain</h3>
+            <p>Fokus ke tampilan yang bersih, elegan, dan nyaman dilihat.</p>
+          </article>
+        </div>
 
-    .maintenance-card {
-      width: min(100%, 440px);
-      padding: 38px 30px 28px;
-      text-align: center;
-      animation: appear 0.7s ease both;
-    }
+        <div class="timeline glass" data-reveal>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <h4>Fokus ke website pribadi</h4>
+              <p>Tempat untuk memperkenalkan diri, karya, dan kontak.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <h4>Fitur modern</h4>
+              <p>Tema gelap/terang, animasi, musik latar, dan loading screen.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <h4>Tombol Chat AI</h4>
+              <p>Menu menuju layanan AI lain, bukan digabung jadi satu.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+     <section id="project" class="section">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">Proyek</p>
+    <h2>Proyek saya</h2>
+    <p>Beberapa proyek yang sedang saya kerjakan atau pernah saya buat.</p>
+  </div>
 
-    .eyebrow {
-      margin-bottom: 8px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-    }
+ <div class="ai-grid">
+  <a class="ai-card glass" href="aboutProject/1/1.html" target="_blank" rel="noopener noreferrer">
+    <span>Crafting Modern Websites</span>
+<p>Mengubah ide menjadi website yang cepat, modern, dan fungsional.</p>
+    <img src="image/website/website1.jpg" alt="Website Pribadi">
+  </a>
+  <a class="ai-card glass" href="aboutProject/2/2.html" target="_blank" rel="noopener noreferrer">
+    <span>Bot WhatsApp</span>
+    <p>Bot WhatsApp berbasis Baileys dengan fitur grup, AI, dan utilitas.</p>
+    <img src="image/botwa/botwa.jpg" alt="Bot WhatsApp">
+  </a>
+  <a class="ai-card glass" href="aboutProject/3/3.html" target="_blank" rel="noopener noreferrer">
+    <span>Desain UI</span>
+    <p>Kumpulan desain antarmuka modern untuk website dan aplikasi.</p>
+    <img src="image/ui-design/design1.jpg" alt="Desain UI">
+  </a>
+  <a class="ai-card glass" href="aboutProject/4/4.html" target="_blank" rel="noopener noreferrer">    
+    <span>Server & Hosting</span>
+    <p>Eksperimen VPS, Linux, dan konfigurasi server untuk berbagai kebutuhan.</p>
+    <img src="image/server/server1.jpg" alt="Server">
+  </a>
+  <a class="ai-card glass" href="aboutProject/5/5.html" target="_blank" rel="noopener noreferrer">
 
-    h1 {
-      margin-bottom: 12px;
-      font-size: 25px;
-      line-height: 1.25;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
+    <span id="flight">Flight Project</span>
+    <p>Dokumentasi penerbangan, flight simulator, dan berbagai rute penerbangan.</p>
+    <img src="image/flight/flight1.jpg" alt="Flight Project"><br>
+    <img src="image/flight/flight2.jpg" alt="Flight Project"><br>
+    <img src="image/flight/flight3.jpg" alt="Flight Project"><br>
+  </a>
+  <a class="ai-card glass" href="aboutProject/6/6.html" target="_blank" rel="noopener noreferrer">
+    <span>IoT Project</span>
+    <p>Eksperimen Arduino, ESP32, sensor, dan berbagai proyek Internet of Things.</p>
+    <img src="image/iot/iot1.jpg" alt="IoT Project">
+  </a>
+</div>
+</section>
 
-    .description {
-      max-width: 340px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-      font-weight: 500;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.45;
-        transform: scale(0.9);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .contact {
-      margin-top: 27px;
-    }
-
-    .contact-button {
-      width: 100%;
-      min-height: 45px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      border: 0;
-      border-radius: 13px;
-      
-      color: var(--button-text);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-    }
-
-    .contact-button:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    .contact-button:active {
-      transform: scale(0.98);
-    }
-
-    .wa-icon {
-      width: 18px;
-      height: 18px;
-      display: block;
-    }
-
-    footer {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 10.5px;
-      line-height: 1.6;
-    }
-
-    footer strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-    
-   .datetime {
-      margin-top: 3px;
-      font-size: 10px;
-      color: var(--muted);
-      opacity: 0.85;
-    }
-    .copyright {
-      margin-top: 4px;
-    }
-
-    @media (max-width: 420px) {
-      body {
-        padding: 17px;
-      }
-
-      .maintenance-card {
-        padding: 32px 22px 24px;
-        border-radius: 21px;
-      }
-
-      h1 {
-        font-size: 23px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="background"></div>
-  <main class="maintenance-card">
-    <h1>Website sedang diperbaiki</h1>
-    <p class="description">
-      Website pribadi Captain Z sedang dalam proses perbaikan
-      dan pengembangan. Beberapa bagian mungkin belum dapat
-      diakses untuk sementara waktu.
+<section id="community" class="section">
+  <div class="section-head" data-reveal >
+    <p class="eyebrow">Community</p>
+    <h2>Community</h2>
+    <p>
+      Komunitas untuk belajar coding, musik, berbagi pengalaman, dan berkembang bersama.
     </p>
-    
-    <div class="contact">
-      <a href="https://wa.me/6285921299248?text=Assalamu%27alaikum" class="contact-button">
-        Hubungi Captain Z
+  </div>
+
+  <div class="game-grid">
+
+  <!-- S²D Coding -->
+  <div class="game-card glass">
+    <img src="image/S2DCoding.jpg" alt="S²D Coding">
+    <div class="game-info">
+      <h3 style="font-size:20px;">S²D Coding</h3>
+      <p>
+        Komunitas untuk belajar pemrograman, membahas dunia musik, berbagi karya, dan saling membantu sesama anggota.
+      </p>
+
+      <a href="https://trxrevolution.github.io/S2D-Coding" class="game-btn" target="_blank">
+        Lihat Komunitas
       </a>
     </div>
+  </div>
+<br><br>
 
-    <footer>
-      <div>
-        CPTZ301010
+  <!-- SkyChatApp -->
+  <div class="game-card glass">
+    <img src="image/SkyChatApp.jpg" alt="SkyChatApp">
+    <div class="game-info">
+    <h3 style="font-size:20px;">SkyChatApp</h3>
+      <p>
+        Aplikasi untuk obrolan santai secara acak. Temukan teman baru, berbagi cerita, dan nikmati percakapan seru dengan pengguna lainnya.
+      </p>
+
+      <a href="https://1SkyChatApp.netlify.app" class="game-btn" target="_blank">
+        Buka Aplikasi
+      </a>
+    </div>
+  </div>
+<br><br>
+  
+     <!-- CNAG -->
+  <div class="game-card glass">
+   <img src="image/CNAG.jpg" alt="CNAG Community">
+   <div class="game-info">
+   <h3>CNAG Community</h3>
+    <p>
+      <strong>CAKRAWALA NUSANTARA AIRLINES GROUP (CNAG)</strong> adalah komunitas
+      aviasi yang menjadi tempat berkumpulnya para pecinta dunia penerbangan.
+      Di sini kamu dapat berdiskusi seputar maskapai, bandara, pesawat, simulator
+      penerbangan, berbagi informasi terbaru, mengikuti event komunitas, serta
+      bertemu dengan sesama aviation enthusiast dari berbagai daerah.
+    </p>
+    <a href="https://raka579.github.io/Join-ke-komunitas-rfs-indonesia" class="game-btn" target="_blank">
+      Join Sekarang 
+    </a>
+  </div>
+</div>
+</div>
+<br><br>
+</section>
+ 
+<section id="other" class="section">
+<div class="section-head" data-reveal>
+  <p class="eyebrow">Explore</p>
+  <h2>Tools & HTML Apps</h2>
+  <p>Koleksi tools, aplikasi, dan game HTML yang dapat digunakan langsung di browser.</p>
+</div>
+
+  <div class="game-grid">
+    <div class="game-card glass">
+      <img src="image/game/game.jpg" alt="Game">
+      <div class="game-info">
+        <h3 style="font-size:20px;"> Game html</h3>
+        <p>
+          Kumpulan Game klasik yang ringan dan dapat dimainkan langsung di browser.
+        </p>
+        <a href="https://captain-z-01.github.io/Game_html/" class="game-btn">
+          Main
+        </a>
       </div>
-      <div>
-        Website pribadi <strong>Captain Z</strong>
-      </div>
-      <div class="copyright">
-        © <span id="year"></span> Captain_Z MD • All rights reserved.
-      </div>
-      <div class="datetime" id="datetime"></div>
-    </footer>
-  </main>
-  <script>
-    (() => {
-      const THEME_KEY = "Captain_Z-MD.theme";
-      const root = document.documentElement;
-      
-      function applyTheme() {
-        const savedTheme = localStorage.getItem(THEME_KEY);
-        root.classList.remove("dark");
-        if (savedTheme === "dark") {
-          root.classList.add("dark");
-        }
-        else if (savedTheme === "light") {
-        }
-        else {
-          const prefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)"
-          ).matches;
-          if (prefersDark) {
-            root.classList.add("dark");
-          }
-        }
-      }
-
-      applyTheme();
-      const mediaQuery = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      );
-
-      mediaQuery.addEventListener("change", () => {
-        const savedTheme = localStorage.getItem(THEME_KEY);
-        if (!savedTheme || savedTheme === "auto") {
-          applyTheme();
-        }
-      });
-
-      document.getElementById("year").textContent =
-        new Date().getFullYear();
-    })();
+    </div>
+    <br><br>
+    <div class="game-card glass">
+    <img src="image/quiz/quizhub.jpg" alt="QuizHub">
+    <div class="game-info">
+      <h3>QuizHub</h3>
+     <p id="quizGreeting">
+  Masuk ke QuizHub untuk mengerjakan berbagai soal.
+</p>
+      <a href="https://captain-z-01.github.io/QuizHub/" class="game-btn">
+        Buka Quiz
+      </a>
+    </div>
+  </div>
+    </div>
     
-    function updateDateTime() {
+<div class="spin-preview glass">
+  <h3>🎡 Spin Keberuntungan 🎡</h3>
+  <p>Hanya untuk hiburan. Bisa diputar 1x setiap hari.</p>
+  <div class="wheel-box">
+    <div class="pointer"></div>
+    <canvas id="spinWheel" width="320" height="320"></canvas>
+    <button id="spinBtn" class="game-btn">
+       Putar
+    </button>
+  </div>
+</div>
+
+<div id="spinPopup" class="spin-popup">
+    <div class="spin-popup-box glass">
+        <h3 id="spinTitle"> Selamat </h3>
+        <p>Kamu mendapatkan:</p>
+        <p id="spinText"></p><br>
+        <button id="closeSpin" class="game-btn">
+            Tutup
+        </button>
+    </div>
+</div>
+<div id="alreadyPopup" class="spin-popup">
+    <div class="spin-popup-box glass">
+        <h3> Failed to spin</h3>
+
+        <p>
+            Kamu sudah menggunakan kesempatan spin hari ini.
+            Coba lagi besok ya.
+        </p>
+
+        <button id="closeAlready" class="game-btn">
+            Oke
+        </button>
+    </div>
+</div>
+</section>
+      <section id="ceo" class="section">
+        <div class="section-head" data-reveal> 
+          <p class="eyebrow">CEO</p>
+          <h2>Founder</h2>
+          <p>Ceo Community</p>
+        </div>
+
+        <div class="ceo-banner glass" data-reveal>
+          <div>
+            <h3>Yahya Zakaria</h3>
+            <p>Founder • Creator • Builder • Owner</p>
+          </div>
+          <a class="badge" style="text-decoration: none !important;" href="Alert/alert.html" target="_blank">Open for collaboration</a>
+        </div>
+      </section>
+      
+  <section id="contact" class="section">
+  <div class="section-head" data-reveal>
+    <p class="eyebrow">Kontak</p>
+    <h2>Hubungi Saya</h2>
+    <p>Silakan hubungi saya melalui salah satu platform berikut.</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <!-- WhatsApp -->
+    <a class="contact-card glass" href="https://wa.me/6285921299248?text=Assalamualaikum" target="_blank" rel="noopener noreferrer" data-reveal>
+      <svg class="contact-icon" viewBox="0 0 32 32">
+        <path fill="currentColor" d="M16.01 3C8.84 3 3 8.77 3 15.88c0 2.48.71 4.86 2.06 6.92L3.7 29l6.39-1.67a13.1 13.1 0 005.92 1.42c7.17 0 13-5.77 13-12.87C29 8.77 23.18 3 16.01 3zm0 23.46c-1.87 0-3.69-.5-5.29-1.45l-.38-.22-3.79.99 1.01-3.69-.24-.38a10.43 10.43 0 01-1.61-5.63c0-5.76 4.71-10.45 10.5-10.45 5.79 0 10.5 4.69 10.5 10.45s-4.71 10.38-10.5 10.38zm5.75-7.87c-.31-.16-1.84-.91-2.13-1.02-.28-.1-.49-.16-.69.16-.2.31-.79 1.02-.97 1.22-.18.2-.36.23-.67.08-.31-.16-1.32-.48-2.51-1.53-.93-.82-1.56-1.83-1.74-2.14-.18-.31-.02-.47.13-.63.13-.13.31-.34.47-.51.16-.18.2-.31.31-.52.1-.2.05-.39-.03-.55-.08-.16-.69-1.67-.95-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.52.08-.79.39-.28.31-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.16.2 2.1 3.19 5.09 4.47.71.31 1.26.49 1.69.63.71.23 1.35.2 1.86.12.57-.08 1.84-.75 2.1-1.47.26-.73.26-1.35.18-1.48-.08-.13-.28-.2-.59-.36z"/>
+      </svg>
+
+      <div>
+        <h3 style="font-size:20px;">WhatsApp</h3>
+        <p>Chat langsung</p>
+      </div>
+    </a>
+
+    <!-- Email -->
+    <a class="contact-card glass" href="mailto:yahyaa3536@gmail.com" data-reveal>
+    <svg viewBox="0 0 24 24" fill="none"class="contact-icon" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" ></path> </g></svg>
+
+      <div>
+        <h3 style="font-size:20px;">Email</h3>
+        <p>Pesan formal</p>
+      </div>
+    </a>
+
+    <!-- Instagram -->
+    <a class="contact-card glass" href="https://www.instagram.com/captain_z_01?igsh=Zm9kcm82MGswcmV1" target="_blank" rel="noopener noreferrer" data-reveal>
+      <svg class="contact-icon" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a1 1 0 110 2 1 1 0 010-2zm-5 2a6 6 0 110 12 6 6 0 010-12zm0 2.2A3.8 3.8 0 1015.8 12 3.8 3.8 0 0012 8.2z"/>
+      </svg>
+
+      <div>
+        <h3 style="font-size:20px;">Instagram</h3>
+        <p>Konten & Update</p>
+      </div>
+    </a>
+
+    <!-- DISCORD -->
+    <a class="contact-card glass" href="https://discord.gg/TDNZGQKQ" target="_blank" rel="noopener noreferrer" data-reveal>
+    <svg viewBox="0 0 24 24" fill="currentColor" class="contact-icon" xmlns="http://www.w3.org/2000/svg"><g stroke-width="0"></g><g stroke-linecap="round" stroke-linejoin="round"></g><g> <path d="M18.59 5.88997C17.36 5.31997 16.05 4.89997 14.67 4.65997C14.5 4.95997 14.3 5.36997 14.17 5.69997C12.71 5.47997 11.26 5.47997 9.83001 5.69997C9.69001 5.36997 9.49001 4.95997 9.32001 4.65997C7.94001 4.89997 6.63001 5.31997 5.40001 5.88997C2.92001 9.62997 2.25001 13.28 2.58001 16.87C4.23001 18.1 5.82001 18.84 7.39001 19.33C7.78001 18.8 8.12001 18.23 8.42001 17.64C7.85001 17.43 7.31001 17.16 6.80001 16.85C6.94001 16.75 7.07001 16.64 7.20001 16.54C10.33 18 13.72 18 16.81 16.54C16.94 16.65 17.07 16.75 17.21 16.85C16.7 17.16 16.15 17.42 15.59 17.64C15.89 18.23 16.23 18.8 16.62 19.33C18.19 18.84 19.79 18.1 21.43 16.87C21.82 12.7 20.76 9.08997 18.61 5.88997H18.59ZM8.84001 14.67C7.90001 14.67 7.13001 13.8 7.13001 12.73C7.13001 11.66 7.88001 10.79 8.84001 10.79C9.80001 10.79 10.56 11.66 10.55 12.73C10.55 13.79 9.80001 14.67 8.84001 14.67ZM15.15 14.67C14.21 14.67 13.44 13.8 13.44 12.73C13.44 11.66 14.19 10.79 15.15 10.79C16.11 10.79 16.87 11.66 16.86 12.73C16.86 13.79 16.11 14.67 15.15 14.67Z" fill="#currentColor"></path> </g></svg> 
+      <div>
+        <h3 style="font-size:20px;" >Discord</h3>
+        <p>Other acount</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+    </main>
+   <br><br>
+   <h3 style="text-align:center"> Follow us on:</h3>
+ <div class="footer-social">
+
+  <a href="GitHub/index.html" target="_blank" aria-label="GitHub">
+    <!-- GitHub SVG -->
+    <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g  stroke-width="0"></g><g  stroke-linecap="round" stroke-linejoin="round"></g><g > <title>github [#142]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="currentColor"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399" id="github-[#142]"> </path> </g> </g> </g> </g></svg>
+  </a>
+
+ <!-- Instagram  -->
+  <a href="https://www.instagram.com/captain_z_01?igsh=Zm9kcm82MGswcmV1" target="_blank" aria-label="Instagram">
+ <svg width="110px" height="110px" viewBox="0 0 3364.7 3364.7" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g  stroke-width="0"></g><g  stroke-linecap="round" stroke-linejoin="round"></g><g ><defs><radialGradient id="0" cx="217.76" cy="3290.99" r="4271.92" gradientUnits="userSpaceOnUse"><stop offset=".09" stop-color="#fa8f21"></stop><stop offset=".78" stop-color="#d82d7e"></stop></radialGradient><radialGradient id="1" cx="2330.61" cy="3182.95" r="3759.33" gradientUnits="userSpaceOnUse"><stop offset=".64" stop-color="#8c3aaa" stop-opacity="0"></stop><stop offset="1" stop-color="#8c3aaa"></stop></radialGradient></defs><path d="M853.2,3352.8c-200.1-9.1-308.8-42.4-381.1-70.6-95.8-37.3-164.1-81.7-236-153.5S119.7,2988.6,82.6,2892.8c-28.2-72.3-61.5-181-70.6-381.1C2,2295.4,0,2230.5,0,1682.5s2.2-612.8,11.9-829.3C21,653.1,54.5,544.6,82.5,472.1,119.8,376.3,164.3,308,236,236c71.8-71.8,140.1-116.4,236-153.5C544.3,54.3,653,21,853.1,11.9,1069.5,2,1134.5,0,1682.3,0c548,0,612.8,2.2,829.3,11.9,200.1,9.1,308.6,42.6,381.1,70.6,95.8,37.1,164.1,81.7,236,153.5s116.2,140.2,153.5,236c28.2,72.3,61.5,181,70.6,381.1,9.9,216.5,11.9,281.3,11.9,829.3,0,547.8-2,612.8-11.9,829.3-9.1,200.1-42.6,308.8-70.6,381.1-37.3,95.8-81.7,164.1-153.5,235.9s-140.2,116.2-236,153.5c-72.3,28.2-181,61.5-381.1,70.6-216.3,9.9-281.3,11.9-829.3,11.9-547.8,0-612.8-1.9-829.1-11.9" fill="url(#0)"></path><path d="M853.2,3352.8c-200.1-9.1-308.8-42.4-381.1-70.6-95.8-37.3-164.1-81.7-236-153.5S119.7,2988.6,82.6,2892.8c-28.2-72.3-61.5-181-70.6-381.1C2,2295.4,0,2230.5,0,1682.5s2.2-612.8,11.9-829.3C21,653.1,54.5,544.6,82.5,472.1,119.8,376.3,164.3,308,236,236c71.8-71.8,140.1-116.4,236-153.5C544.3,54.3,653,21,853.1,11.9,1069.5,2,1134.5,0,1682.3,0c548,0,612.8,2.2,829.3,11.9,200.1,9.1,308.6,42.6,381.1,70.6,95.8,37.1,164.1,81.7,236,153.5s116.2,140.2,153.5,236c28.2,72.3,61.5,181,70.6,381.1,9.9,216.5,11.9,281.3,11.9,829.3,0,547.8-2,612.8-11.9,829.3-9.1,200.1-42.6,308.8-70.6,381.1-37.3,95.8-81.7,164.1-153.5,235.9s-140.2,116.2-236,153.5c-72.3,28.2-181,61.5-381.1,70.6-216.3,9.9-281.3,11.9-829.3,11.9-547.8,0-612.8-1.9-829.1-11.9" fill="url(#1)"></path><path d="M1269.25,1689.52c0-230.11,186.49-416.7,416.6-416.7s416.7,186.59,416.7,416.7-186.59,416.7-416.7,416.7-416.6-186.59-416.6-416.7m-225.26,0c0,354.5,287.36,641.86,641.86,641.86s641.86-287.36,641.86-641.86-287.36-641.86-641.86-641.86S1044,1335,1044,1689.52m1159.13-667.31a150,150,0,1,0,150.06-149.94h-0.06a150.07,150.07,0,0,0-150,149.94M1180.85,2707c-121.87-5.55-188.11-25.85-232.13-43-58.36-22.72-100-49.78-143.78-93.5s-70.88-85.32-93.5-143.68c-17.16-44-37.46-110.26-43-232.13-6.06-131.76-7.27-171.34-7.27-505.15s1.31-373.28,7.27-505.15c5.55-121.87,26-188,43-232.13,22.72-58.36,49.78-100,93.5-143.78s85.32-70.88,143.78-93.5c44-17.16,110.26-37.46,232.13-43,131.76-6.06,171.34-7.27,505-7.27S2059.13,666,2191,672c121.87,5.55,188,26,232.13,43,58.36,22.62,100,49.78,143.78,93.5s70.78,85.42,93.5,143.78c17.16,44,37.46,110.26,43,232.13,6.06,131.87,7.27,171.34,7.27,505.15s-1.21,373.28-7.27,505.15c-5.55,121.87-25.95,188.11-43,232.13-22.72,58.36-49.78,100-93.5,143.68s-85.42,70.78-143.78,93.5c-44,17.16-110.26,37.46-232.13,43-131.76,6.06-171.34,7.27-505.15,7.27s-373.28-1.21-505-7.27M1170.5,447.09c-133.07,6.06-224,27.16-303.41,58.06-82.19,31.91-151.86,74.72-221.43,144.18S533.39,788.47,501.48,870.76c-30.9,79.46-52,170.34-58.06,303.41-6.16,133.28-7.57,175.89-7.57,515.35s1.41,382.07,7.57,515.35c6.06,133.08,27.16,223.95,58.06,303.41,31.91,82.19,74.62,152,144.18,221.43s139.14,112.18,221.43,144.18c79.56,30.9,170.34,52,303.41,58.06,133.35,6.06,175.89,7.57,515.35,7.57s382.07-1.41,515.35-7.57c133.08-6.06,223.95-27.16,303.41-58.06,82.19-32,151.86-74.72,221.43-144.18s112.18-139.24,144.18-221.43c30.9-79.46,52.1-170.34,58.06-303.41,6.06-133.38,7.47-175.89,7.47-515.35s-1.41-382.07-7.47-515.35c-6.06-133.08-27.16-224-58.06-303.41-32-82.19-74.72-151.86-144.18-221.43S2586.8,537.06,2504.71,505.15c-79.56-30.9-170.44-52.1-303.41-58.06C2068,441,2025.41,439.52,1686,439.52s-382.1,1.41-515.45,7.57" fill="#ffffff"></path></g></svg>
+  </a>
+  
+ <!-- YouTube SVG -->
+  <a href="Alert/alert.html" target="_blank" aria-label="YouTube">
+    <svg viewBox="0 -7 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g  stroke-width="0"></g><g  stroke-linecap="round" stroke-linejoin="round"></g><g > <title>Youtube-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-200.000000, -368.000000)" fill="#CE1312"> <path d="M219.044,391.269916 L219.0425,377.687742 L232.0115,384.502244 L219.044,391.269916 Z M247.52,375.334163 C247.52,375.334163 247.0505,372.003199 245.612,370.536366 C243.7865,368.610299 241.7405,368.601235 240.803,368.489448 C234.086,368 224.0105,368 224.0105,368 L223.9895,368 C223.9895,368 213.914,368 207.197,368.489448 C206.258,368.601235 204.2135,368.610299 202.3865,370.536366 C200.948,372.003199 200.48,375.334163 200.48,375.334163 C200.48,375.334163 200,379.246723 200,383.157773 L200,386.82561 C200,390.73817 200.48,394.64922 200.48,394.64922 C200.48,394.64922 200.948,397.980184 202.3865,399.447016 C204.2135,401.373084 206.612,401.312658 207.68,401.513574 C211.52,401.885191 224,402 224,402 C224,402 234.086,401.984894 240.803,401.495446 C241.7405,401.382148 243.7865,401.373084 245.612,399.447016 C247.0505,397.980184 247.52,394.64922 247.52,394.64922 C247.52,394.64922 248,390.73817 248,386.82561 L248,383.157773 C248,379.246723 247.52,375.334163 247.52,375.334163 L247.52,375.334163 Z" id="Youtube"> </path> </g> </g> </g></svg>
+  </a> 
+
+<!-- TikTok -->
+  <a href="Alert/alert.html" target="_blank" aria-label="TikTok">
+ <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g  stroke-width="0"></g><g  stroke-linecap="round" stroke-linejoin="round"></g><g > <path d="M8.45095 19.7926C8.60723 18.4987 9.1379 17.7743 10.1379 17.0317C11.5688 16.0259 13.3561 16.5948 13.3561 16.5948V13.2197C13.7907 13.2085 14.2254 13.2343 14.6551 13.2966V17.6401C14.6551 17.6401 12.8683 17.0712 11.4375 18.0775C10.438 18.8196 9.90623 19.5446 9.7505 20.8385C9.74562 21.5411 9.87747 22.4595 10.4847 23.2536C10.3345 23.1766 10.1815 23.0889 10.0256 22.9905C8.68807 22.0923 8.44444 20.7449 8.45095 19.7926ZM22.0352 6.97898C21.0509 5.90039 20.6786 4.81139 20.5441 4.04639H21.7823C21.7823 4.04639 21.5354 6.05224 23.3347 8.02482L23.3597 8.05134C22.8747 7.7463 22.43 7.38624 22.0352 6.97898ZM28 10.0369V14.293C28 14.293 26.42 14.2312 25.2507 13.9337C23.6179 13.5176 22.5685 12.8795 22.5685 12.8795C22.5685 12.8795 21.8436 12.4245 21.785 12.3928V21.1817C21.785 21.6711 21.651 22.8932 21.2424 23.9125C20.709 25.246 19.8859 26.1212 19.7345 26.3001C19.7345 26.3001 18.7334 27.4832 16.9672 28.28C15.3752 28.9987 13.9774 28.9805 13.5596 28.9987C13.5596 28.9987 11.1434 29.0944 8.96915 27.6814C8.49898 27.3699 8.06011 27.0172 7.6582 26.6277L7.66906 26.6355C9.84383 28.0485 12.2595 27.9528 12.2595 27.9528C12.6779 27.9346 14.0756 27.9528 15.6671 27.2341C17.4317 26.4374 18.4344 25.2543 18.4344 25.2543C18.5842 25.0754 19.4111 24.2001 19.9423 22.8662C20.3498 21.8474 20.4849 20.6247 20.4849 20.1354V11.3475C20.5435 11.3797 21.2679 11.8347 21.2679 11.8347C21.2679 11.8347 22.3179 12.4734 23.9506 12.8889C25.1204 13.1864 26.7 13.2483 26.7 13.2483V9.91314C27.2404 10.0343 27.7011 10.0671 28 10.0369Z" fill="#EE1D52"></path> <path d="M26.7009 9.91314V13.2472C26.7009 13.2472 25.1213 13.1853 23.9515 12.8879C22.3188 12.4718 21.2688 11.8337 21.2688 11.8337C21.2688 11.8337 20.5444 11.3787 20.4858 11.3464V20.1364C20.4858 20.6258 20.3518 21.8484 19.9432 22.8672C19.4098 24.2012 18.5867 25.0764 18.4353 25.2553C18.4353 25.2553 17.4337 26.4384 15.668 27.2352C14.0765 27.9539 12.6788 27.9357 12.2604 27.9539C12.2604 27.9539 9.84473 28.0496 7.66995 26.6366L7.6591 26.6288C7.42949 26.4064 7.21336 26.1717 7.01177 25.9257C6.31777 25.0795 5.89237 24.0789 5.78547 23.7934C5.78529 23.7922 5.78529 23.791 5.78547 23.7898C5.61347 23.2937 5.25209 22.1022 5.30147 20.9482C5.38883 18.9122 6.10507 17.6625 6.29444 17.3494C6.79597 16.4957 7.44828 15.7318 8.22233 15.0919C8.90538 14.5396 9.6796 14.1002 10.5132 13.7917C11.4144 13.4295 12.3794 13.2353 13.3565 13.2197V16.5948C13.3565 16.5948 11.5691 16.028 10.1388 17.0317C9.13879 17.7743 8.60812 18.4987 8.45185 19.7926C8.44534 20.7449 8.68897 22.0923 10.0254 22.991C10.1813 23.0898 10.3343 23.1775 10.4845 23.2541C10.7179 23.5576 11.0021 23.8221 11.3255 24.0368C12.631 24.8632 13.7249 24.9209 15.1238 24.3842C16.0565 24.0254 16.7586 23.2167 17.0842 22.3206C17.2888 21.7611 17.2861 21.1978 17.2861 20.6154V4.04639H20.5417C20.6763 4.81139 21.0485 5.90039 22.0328 6.97898C22.4276 7.38624 22.8724 7.7463 23.3573 8.05134C23.5006 8.19955 24.2331 8.93231 25.1734 9.38216C25.6596 9.61469 26.1722 9.79285 26.7009 9.91314Z" fill="#000000"></path> <path d="M4.48926 22.7568V22.7594L4.57004 22.9784C4.56076 22.9529 4.53074 22.8754 4.48926 22.7568Z" fill="#69C9D0"></path> <path d="M10.5128 13.7916C9.67919 14.1002 8.90498 14.5396 8.22192 15.0918C7.44763 15.7332 6.79548 16.4987 6.29458 17.354C6.10521 17.6661 5.38897 18.9168 5.30161 20.9528C5.25223 22.1068 5.61361 23.2983 5.78561 23.7944C5.78543 23.7956 5.78543 23.7968 5.78561 23.798C5.89413 24.081 6.31791 25.0815 7.01191 25.9303C7.2135 26.1763 7.42963 26.4111 7.65924 26.6334C6.92357 26.1457 6.26746 25.5562 5.71236 24.8839C5.02433 24.0451 4.60001 23.0549 4.48932 22.7626C4.48919 22.7605 4.48919 22.7584 4.48932 22.7564V22.7527C4.31677 22.2571 3.95431 21.0651 4.00477 19.9096C4.09213 17.8736 4.80838 16.6239 4.99775 16.3108C5.4985 15.4553 6.15067 14.6898 6.92509 14.0486C7.608 13.4961 8.38225 13.0567 9.21598 12.7484C9.73602 12.5416 10.2778 12.3891 10.8319 12.2934C11.6669 12.1537 12.5198 12.1415 13.3588 12.2575V13.2196C12.3808 13.2349 11.4148 13.4291 10.5128 13.7916Z" fill="#69C9D0"></path> <path d="M20.5438 4.04635H17.2881V20.6159C17.2881 21.1983 17.2881 21.76 17.0863 22.3211C16.7575 23.2167 16.058 24.0253 15.1258 24.3842C13.7265 24.923 12.6326 24.8632 11.3276 24.0368C11.0036 23.823 10.7187 23.5594 10.4844 23.2567C11.5962 23.8251 12.5913 23.8152 13.8241 23.341C14.7558 22.9821 15.4563 22.1734 15.784 21.2774C15.9891 20.7178 15.9864 20.1546 15.9864 19.5726V3H20.4819C20.4819 3 20.4315 3.41188 20.5438 4.04635ZM26.7002 8.99104V9.9131C26.1725 9.79263 25.6609 9.61447 25.1755 9.38213C24.2352 8.93228 23.5026 8.19952 23.3594 8.0513C23.5256 8.1559 23.6981 8.25106 23.8759 8.33629C25.0192 8.88339 26.1451 9.04669 26.7002 8.99104Z" fill="#69C9D0"></path> </g></svg>
+  </a>
+  
+  <!-- X -->
+    <a href="Alert/alert.html" target="_blank" aria-label="X">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 1200 1227">
+  <path fill="currentColor" d="M714.2 519.3 1160.9 0H1055L667.1 450.9 357.4 0H0l468.5 681.8L0 1226.4h105.9l409.7-476.6 327.4 476.6H1200L714.2 519.3ZM569.3 687.8l-47.5-68L143.8 79.7h162.7l305.1 437.1 47.5 68 396.5 568.3H893.9L569.3 687.8Z"/>
+</svg>
+  </a>
+</div>
+    <div class="footer-info">
+
+  <div class="footer-item">
+    <span class="label">Last Update</span>
+    <span id="lastUpdate">-</span>
+  </div>
+
+  <div class="footer-item">
+    <span class="label">Theme</span>
+    <span id="themeStatus">Dark</span>
+  </div>
+
+  <div class="footer-item">
+    <span class="label">Status</span>
+    <span id="websiteStatus">
+      <span class="status-dot"></span> Online
+    </span>
+  </div>
+
+  <div class="footer-item">
+    <span class="label">Version</span>
+    <span>v3.2.0</span>
+  </div>
+
+  <div class="footer-item">
+    <span class="label">Language</span>
+    <span>English • Indonesian</span>
+  </div>
+
+</div>
+
+<div class="footer-divider"></div>
+
+<div class="footer-notes">
+  <p>• This website is continuously improved and maintained •</p>
+  <p>• Best viewed on modern browsers •</p>
+  <p>• Some features may change in future updates •</p>
+</div>
+
+<div class="footer-divider"></div>
+<p class="footer-notes">Terimakasih telah berkunjung :)</p>
+<p class="copyright">
+  © <span id="copyrightYear"></span> Captain_Z MD • All Rights Reserved.
+</p>
+   <p class="footer-notes" style="text-align:center;" id="datetime"></p><br><br>
+<div id="aiAssistant" class="ai-assistant">
+   <span class="ai-text">
+    Ada yg bisa saya bantu, <span id="aiName"></span>?
+</span>
+    <a href="Alert/alert.html" class="bot-btn" aria-label="Buka AI">
+        <i class="fa-solid fa-robot"></i>
+    </a>
+</div>
+
+<button id="topBtn" class="top-btn" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+    <audio id="bgMusic" loop preload="auto">
+      <source src="MusicB/music1.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+<script>
+function loadBlog(data) {
+  const post = data.feed.entry[0];
+  document.getElementById("daily").innerHTML = `
+    <h2>${post.title.$t}</h2>
+    ${post.content.$t}
+  `;
+}
+function updateDateTime() {
       const now = new Date();
 
       const date = now.toLocaleDateString("id-ID", {
@@ -362,5 +605,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     updateDateTime();
     setInterval(updateDateTime, 1000);
-  </script></body>
+</script>
+
+<script src="https://captainzdaily.blogspot.com/feeds/posts/default?alt=json-in-script&max-results=1&callback=loadBlog"></script>
+  <script src="script.js"></script>
+</body>
 </html>
