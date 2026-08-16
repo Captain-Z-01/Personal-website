@@ -1,30 +1,17 @@
 {
-  "id": "https://captain-z.pages.dev/",
   "name": "Captain Z",
   "short_name": "Captain Z",
   "description": "Website pribadi Captain Z.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
   "background_color": "#0f172a",
   "theme_color": "#0ea5e9",
   "lang": "id",
-  "dir": "ltr",
-  "categories": [
-    "personalization",
-    "portfolio"
-  ],
   "icons": [
     {
-      "src": "/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icons/icon-512.png",
-      "sizes": "512x512",
+      "src": "https://avatars.githubusercontent.com/u/308199074?v=4",
+      "sizes": "460x460",
       "type": "image/png",
       "purpose": "any maskable"
     }
