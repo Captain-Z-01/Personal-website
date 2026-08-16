@@ -1,31 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => { 'use strict';
-
 // ==================== ELEMENTS ==================== 
 const loaderScreen = document.getElementById('loader'); const app = document.getElementById('app'); const loadingProgress = document.getElementById('loadingProgress'); const loadingBar = document.getElementById('loadingBar'); const loadingStatus = document.getElementById('loadingStatus'); const loadingFile = document.getElementById('loadingFile'); const retryBtn = document.getElementById('retryBtn');
-
 const themeBtn = document.getElementById('themeBtn'); const musicBtn = document.getElementById('musicBtn'); const musicPlayer = document.getElementById('musicPlayer'); const bgMusic = document.getElementById('bgMusic'); const volumeBtn = document.getElementById('volumeBtn'); const musicProgress = document.getElementById('musicProgress'); const miniEq = document.getElementById('miniEq');
-
 const menuBtn = document.getElementById('menuBtn'); const navLinks = document.getElementById('navLinks');
-
 const topBtn = document.getElementById('topBtn'); const typingElement = document.getElementById('typing');
-
 const spinWheel = document.getElementById('spinWheel'); const spinBtn = document.getElementById('spinBtn'); const spinPopup = document.getElementById('spinPopup'); const spinText = document.getElementById('spinText'); const closeSpin = document.getElementById('closeSpin'); const alreadyPopup = document.getElementById('alreadyPopup'); const closeAlready = document.getElementById('closeAlready');
-
 const quizGreeting = document.getElementById('quizGreeting');
-
 const loginSection = document.getElementById('loginSection'); const dashSection = document.getElementById('dashSection'); const nameInput = document.getElementById('nameInput'); const bioBtn = document.getElementById('bioBtn'); const demoBtn = document.getElementById('demoBtn'); const logoutBtn = document.getElementById('logoutBtn'); const statusBox = document.getElementById('statusBox'); const bar = document.getElementById('bar'); const welcomeName = document.getElementById('welcomeName');
+const aiAssistant = document.getElementById("aiAssistant");
+const aiName = document.getElementById("aiName");
+const raw = localStorage.getItem("User.Captain_Z");
+const user = safeParseJSON(raw);
+
+if (user && user.name) {
+    aiName.textContent = user.name;
+} else {
+    aiName.textContent = raw || "Teman";
+}
 
 // ==================== STATE ==================== 
-let isPlaying = false; let isMuted = false; let isDragging = false; let loadingStarted = false; let loadingTimer = null; let typingStarted = false;
-
+let isPlaying = false; let isMuted = false; let isDragging = false; let loadingStarted = false; let loadingTimer = null; let typingStarted = false; let scrollTimer
 let currentRotation = 0; let spinLocked = false; let idleSpinEnabled = false; let idleSpinTimer = null;
 
 const hadiah = [ '🍀 Keberuntungan', '😂 Kesialan', '🎉 Hoki Besar', '☕ Istirahat', '🎁 Bonus', '😴 Tidur', '💎 Rare', '😅 Zonk' ];
-
 const warna = [ '#4CAF50', '#F44336', '#2196F3', '#FFC107', '#9C27B0', '#00BCD4', '#FF9800', '#607D8B' ];
-
 const total = hadiah.length; const sudut = (Math.PI * 2) / total;
-
 const STORAGE_KEY = 'quiz_gate_user_v1'; const CRED_KEY = 'quiz_gate_credential_v1'; const SPIN_KEY = 'spin-User-Captain_Z-MD';
 
 // ==================== SAFE STORAGE ====================
@@ -43,7 +42,6 @@ function setProgress(v) {
     const value = Math.max(0, Math.min(100, Number(v) || 0)); 
     loadingBar.style.width = `${value}%`;   
 }
-
 function setLocalProgress(v) { 
     if (!bar) return; 
     const value = Math.max(0, Math.min(100, Number(v) || 0)); 
@@ -53,19 +51,14 @@ function showLogin() {
     if (loginSection) loginSection.classList.add('active'); 
     if (dashSection) dashSection.classList.remove('active'); 
 }
-
 function showDash(name) { 
     if (welcomeName) welcomeName.textContent = `Hai, ${name}`;   
     if (loginSection) loginSection.classList.remove('active'); 
     if (dashSection) dashSection.classList.add('active'); 
 }
-
 function cleanName(name) { return String(name || '').trim().replace(/\s+/g, ' '); }
-
 function supportsWebAuthn() { return !!( window.PublicKeyCredential && navigator.credentials && window.isSecureContext ); }
-
 function randomBytes(len = 32) { const arr = new Uint8Array(len); crypto.getRandomValues(arr); return arr; }
-
 function toBase64Url(buffer) { 
     const bytes = buffer instanceof ArrayBuffer ? new Uint8Array(buffer) : buffer; 
     let binary = ''; 
@@ -76,14 +69,12 @@ function toBase64Url(buffer) {
         .replace(/=+$/g, ''); 
 }
 function fromBase64Url(base64url) { const base64 = base64url.replace(/-/g, '+').replace(/_/g, '/') + '==='.slice((base64url.length + 3) % 4); const binary = atob(base64); const bytes = new Uint8Array(binary.length); for (let i = 0; i < binary.length; i += 1) { bytes[i] = binary.charCodeAt(i); } return bytes; }
-
 function safeParseJSON(raw) { if (!raw) return null; try { return JSON.parse(raw); } catch { return null; } }
-
 function getStoredQuizName() { const keys = [STORAGE_KEY, 'User.Captain_Z']; for (const key of keys) { const data = safeParseJSON(safeGetItem(key)); const name = cleanName(data?.name); if (name) return name; } return ''; }
 
 // ==================== LOADER ====================
  function initTypingEffect() { if (!typingElement || typingStarted) return; typingStarted = true;
-
+ 
 const texts = [
   'Saya membangun pengalaman digital yang indah.',
   'Pelajar SMA • Web Developer • Content Creator.',
@@ -114,9 +105,9 @@ const texts = [
   'Belajar tanpa henti.',
   'Building the future, one line of code at a time.',
   'Simple. Clean. Modern.',
-  "Let's create something amazing together."
+  "Let's create something amazing together.", 
+  "Hargailah yang buat, lu cuma numpang", 
 ];
-
 let textIndex = 0;
 let charIndex = 0;
 let stopped = false;
@@ -146,7 +137,27 @@ window.addEventListener('beforeunload', () => {
 }, { once: true });
 
 }
-
+window.addEventListener("scroll", () => {
+    aiAssistant.classList.remove("show-text");
+    if(window.scrollY > 300){
+        topBtn.classList.add("show");
+        aiAssistant.classList.add("up");
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            aiAssistant.classList.add("show-text");
+        }, 500); 
+    } else {
+        topBtn.classList.remove("show");
+        aiAssistant.classList.remove("up");
+        aiAssistant.classList.remove("show-text");
+    }
+});
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+});
 function finishLoading() { if (loaderScreen) loaderScreen.classList.add('hide'); if (app) app.hidden = false; document.body.classList.remove('loading'); initTypingEffect(); initScrollReveal(); initActiveNav(); initBackToTop(); }
 
 function simulateLoading() { if (loadingStarted) return; loadingStarted = true;
@@ -210,24 +221,19 @@ if (isOpening) {
 } else if (isPlaying) {
   pauseMusic();
 }
-
 }
 
 function initMusic() { if (!bgMusic) return;
-
 bgMusic.volume = 0.45;
 bgMusic.muted = isMuted;
-
 if (musicBtn) musicBtn.addEventListener('click', toggleMusicWidget);
 if (volumeBtn) volumeBtn.addEventListener('click', toggleMute);
-
 if (musicProgress) {
   musicProgress.addEventListener('input', () => {
     if (!bgMusic.duration || Number.isNaN(bgMusic.duration)) return;
     const newTime = (Number(musicProgress.value) / 100) * bgMusic.duration;
     bgMusic.currentTime = newTime;
   });
-
   musicProgress.addEventListener('mousedown', () => {
     isDragging = true;
   });
