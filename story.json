@@ -1,0 +1,68 @@
+[
+  {
+    "judul": "SMANSAP",
+    "deskripsi": "SEKOLAH MENENGAH ATAS NEGERI 1 PRINGSEWU",
+    "media": [
+      "story/sma/6.jpg", 
+      "story/sma/4.jpg", 
+      "story/sma/3.jpg", 
+      "story/sma/2.jpg", 
+      "story/sma/1.jpg", 
+      "story/sma/1.mp4"
+    ]
+  },
+  {
+    "judul": "SPENSAS",
+    "deskripsi": "SMP NEGERI 1 SUKOHARJO",
+    "media": [
+      "story/1.mp4",
+      "story/smp/1.jpg", 
+      "story/smp/3.jpg", 
+      "story/smp/2.jpg"    
+    ]
+  },
+  {
+    "judul": "Kenangan yang indah",
+    "deskripsi": "Hidup cuma sekali bro",
+    "media": [
+      "story/1.jpg",
+      "story/2.jpg",
+      "story/2.mp4",
+      "story/3.jpg",
+      "story/3.mp4",
+      "story/4.mp4",
+      "story/5.mp4",
+      "story/6.mp4",
+      "story/7.mp4",
+      "story/8.mp4"
+    ]
+  },
+  {
+    "judul": "Study Tour",
+    "deskripsi": "Kumpulan foto study tour yang bikin kangen lagi 🥹",
+    "media": [
+      "story/studytour/1.jpg",
+      "story/studytour/2.jpg",
+      "story/studytour/3.jpg",
+      "story/studytour/4.jpg",
+      "story/studytour/46.jpg",
+      "story/studytour/5.jpg",
+      "story/studytour/6.jpg",
+      "story/studytour/7.jpg",
+      "story/studytour/8.jpg",
+      "story/studytour/9.jpg",
+      "story/studytour/10.jpg",
+      "story/studytour/11.jpg",
+      "story/studytour/12.jpg",
+      "story/studytour/13.jpg",
+      "story/studytour/14.jpg",
+      "story/studytour/15.jpg",
+      "story/studytour/16.jpg",
+      "story/studytour/17.jpg",
+      "story/studytour/18.jpg",
+      "story/studytour/19.jpg",
+      "story/studytour/20.jpg",
+      "story/studytour/21.jpg"
+    ]
+  }
+]
