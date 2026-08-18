@@ -1,3 +1,4 @@
+
 :root{
   --bg:#07111f;
   --bg-soft:rgba(255,255,255,.06);
@@ -47,6 +48,7 @@ html{
 }
 
 body{
+  zoom:.8;
   margin:0;
   font-family:'Poppins',system-ui,-apple-system,sans-serif;
   background:
@@ -1507,7 +1509,6 @@ section[id]{
         transform:translateY(0);
     }
 }
-/* ==================== SMART STORY GALLERY ==================== */
 
 .story-section{
   width:100%;
@@ -1640,7 +1641,7 @@ section[id]{
   }
 
 }
-/* ==================== STORY VIEWER ==================== */
+
 
 .story-viewer{
   position:fixed;
@@ -1674,7 +1675,6 @@ section[id]{
   background:rgba(0,0,0,.92);
 }
 
-/* KONTEN UTAMA */
 .story-viewer-content{
   position:relative;
   z-index:2;
@@ -1690,7 +1690,6 @@ section[id]{
   gap:12px;
 }
 
-/* AREA MEDIA */
 .story-viewer-media-wrap{
   width:100%;
   max-height:78vh;
@@ -1702,7 +1701,6 @@ section[id]{
   overflow:hidden;
 }
 
-/* MEDIA */
 .story-media-box{
   display:flex;
   align-items:center;
@@ -1729,7 +1727,6 @@ section[id]{
   -webkit-user-select:none;
 }
 
-/* VIDEO */
 .story-media-box video.story-viewer-media{
   width:auto;
   height:auto;
@@ -1742,7 +1739,6 @@ section[id]{
   object-fit:contain;
 }
 
-/* TOMBOL NAVIGASI */
 .story-navigation{
   width:100%;
 
@@ -1785,7 +1781,6 @@ section[id]{
   background:rgba(255,255,255,.15);
 }
 
-/* CLOSE */
 .story-close{
   position:fixed;
 
@@ -1795,7 +1790,6 @@ section[id]{
   z-index:10;
 }
 
-/* INFO DI BAWAH MEDIA */
 .story-info{
   position:static;
 
@@ -1833,8 +1827,6 @@ section[id]{
   font-size:.9rem;
 }
 
-
-/* MOBILE */
 @media (max-width:600px){
 
   .story-viewer{
