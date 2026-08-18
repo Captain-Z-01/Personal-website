@@ -1112,6 +1112,7 @@ root.innerHTML = `
         <div class="nav-links" style="background:#2bd5ff83;"id="navLinks" >
           <a href="#home">Beranda</a>
           <a href="#about">Tentang</a>
+          <a href="#story">Storyku</a>
           <a href="#project">Proyek</a>
           <a href="#community">community</a>
           <a href="#other">Other</a> 
@@ -1195,6 +1196,7 @@ root.innerHTML = `
         <span>Planner</span>
         <span>Content Creator</span>
         <span>Student</span>
+        <span>Penjahil</span>
      </div>
    </div>
       </section>
