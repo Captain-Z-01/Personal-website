@@ -20,8 +20,6 @@
     <div>${content}</div>
   `;
 };
-/* ==================== SMART STORY GALLERY ==================== */
-/* ==================== STORY VIEWER ==================== */
 
 let storyViewer = null;
 let storyMediaBox = null;
